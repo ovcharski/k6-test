@@ -8,6 +8,8 @@ In this demo repo are located a few performance tests. In the **k6** folder are 
 In the **api** folder are located load, stress and spike tests of APIs. The examples are for **get** requests.
 A Swagger documentation of the Wordpress RESTful APIs is located  [here](https://ovcharski.com/shop/rest-api/docs/)
 
+In the future more api tests will be added. K6 documentation has a lot of usage examples [docs/k6/latest/examples/](https://grafana.com/docs/k6/latest/examples/)
+
 Playwright end-2-end testing framework of the same WordPress website is available at [ovcharski/playwright-e2e](https://github.com/ovcharski/playwright-e2e/),
 
 # Performance Tesing
