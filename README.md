@@ -6,7 +6,7 @@
 
 In this demo repo are located a few performance tests. In the **k6** folder are located load, stress, spike and soak tests of a WordPress front-end. 
 In the **api** folder are located load, stress and spike tests of APIs. The examples are for **get** requests.
-A Swagger documentation of the Wordpress RESTful APIs is located  [here](https://github.com/ovcharski/playwright-e2e/)
+A Swagger documentation of the Wordpress RESTful APIs is located  [here](https://ovcharski.com/shop/rest-api/docs/)
 
 Playwright end-2-end testing framework of the same WordPress website is available at [ovcharski/playwright-e2e](https://github.com/ovcharski/playwright-e2e/),
 
