@@ -26,38 +26,38 @@ Performance testing helps validate a system's speed, reliability, and scalabilit
 - Scalability Testing - Measures system's ability to scale up/down
 
 ## Load Testing
-Gradual load increase (50 → 100 → 200 users)
-20-minute stable period at 200 users
-Gentle ramp-down
-Random site paths
-Basic performance thresholds (95% under 500ms)
+- Gradual load increase (50 → 100 → 200 users)
+- 20-minute stable period at 200 users
+- Gentle ramp-down
+- Random site paths
+- Basic performance thresholds (95% under 500ms)
 
 ## Stress Testing
-More aggressive load increase (100 → 500 → 1000 users)
-Shorter stages
-Goal of finding system breaking points
-Same random path selection
-Stricter thresholds (95% under 1000ms)
+- More aggressive load increase (100 → 500 → 1000 users)
+- Shorter stages
+- Goal of finding system breaking points
+- Same random path selection
+- Stricter thresholds (95% under 1000ms)
 
 ## Spike Testing
-Sudden, extreme jumps (50 → 500 → 1500 users)
-Short, rapid transitions
-Critical/sensitive endpoints
-Broader failure tolerance: 2000ms max response, <10% failure rate
+- Sudden, extreme jumps (50 → 500 → 1500 users)
+- Short, rapid transitions
+- Critical/sensitive endpoints
+- Broader failure tolerance: 2000ms max response, <10% failure rate
 
 ## Soak Testing
 
-Long-duration test: 6 hours
-Steady 100-user load
-Checks system stability over time
-Detects memory leaks, performance degradation
+- Long-duration test: 6 hours
+- Steady 100-user load
+- Checks system stability over time
+- Detects memory leaks, performance degradation
 
 ## Scalability Testing
 
-Incremental load stages
-Wide performance threshold
-Endpoints testing system scaling
-Verifies performance under growth
+- Incremental load stages
+- Wide performance threshold
+- Endpoints testing system scaling
+- Verifies performance under growth
 
 ## API Testing
 
