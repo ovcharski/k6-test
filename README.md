@@ -2,11 +2,13 @@
 
 [![N|Solid](https://raw.githubusercontent.com/grafana/k6/master/assets/logo.svg)](https://k6.io/)
 
-[K6](https://k6.io/) is a A modern load testing tool, using Go and JavaScript
+[K6](https://k6.io/) is a a modern load testing tool, using Go and JavaScript
 
-A few demo tests about Performance testing. The targer for these tests is a web front-end of a e-shop. E2E testing with Playwright against the same website is available at [ovcharski/playwright-e2e](https://github.com/ovcharski/playwright-e2e/),
+In this demo repo are located a few performance tests. In the **k6** folder are located load, stress, spike and soak tests of a WordPress front-end. 
+In the **api** folder are located load, stress and spike tests of APIs. The examples are for **get** requests.
+A Swagger documentation of the Wordpress RESTful APIs is located  [here](https://github.com/ovcharski/playwright-e2e/)
 
-In reality K6 is used mainly for performance testing of APIs.
+Playwright end-2-end testing framework of the same WordPress website is available at [ovcharski/playwright-e2e](https://github.com/ovcharski/playwright-e2e/),
 
 # Performance Tesing
 

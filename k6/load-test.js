@@ -17,35 +17,27 @@ export const options = {
     summaryTrendStats: ['avg', 'min', 'med', 'max', 'p(95)', 'p(99)']
 }
 
-function getRandomUser() {
-    const users = [
-        '/shop/',
-        '/shop/product-category/clothing',
-        '/shop/product-category/jenkins-artwork',
-        '/shop/product/hoodie-with-zipper',
-        '/shop/product/jenkins-superhero'
-    ];
-    return users[Math.floor(Math.random() * users.length)];
-}
-
 export default function() {
-    const baseUrl = 'https://ovcharski.com';
-    const randomPath = getRandomUser();
-    
+    const apiUrl = 'https://ovcharski.com/shop/wp-json/wp/v2/posts';
+   
     const params = {
         headers: {
-            'User-Agent': 'K6 Load Test',
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8'
+            'Accept': 'application/json',
+            'User-Agent': 'K6 Load Test'
         }
     };
 
-    const res = http.get(`${baseUrl}${randomPath}`, params);
-    
+    // Send GET request to WordPress REST API
+    const res = http.get(apiUrl, params);
+   
     // Check response status
     if (res.status !== 200) {
-        console.error(`Request failed with status ${res.status}`);
+        console.error(`API request failed with status ${res.status}`);
     }
 
+    // Optional: Parse and log response body for debugging
+    // console.log(JSON.stringify(res.json()));
+   
     // Random sleep between 1-3 seconds to simulate real user behavior
     sleep(1 + Math.random() * 2);
 }
