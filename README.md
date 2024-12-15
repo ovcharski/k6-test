@@ -4,6 +4,8 @@
 
 [K6](https://k6.io/) is a a modern load testing tool, using Go and JavaScript
 
+# K6 Performance Testing
+
 In this demo repo are located a few performance tests. In the **k6** folder are located load, stress, spike and soak tests of a WordPress front-end. 
 In the **api** folder are located load, stress and spike tests of APIs. The examples are for **get** requests.
 A Swagger documentation of the Wordpress RESTful APIs is located  [here](https://ovcharski.com/shop/rest-api/docs/)
@@ -11,6 +13,23 @@ A Swagger documentation of the Wordpress RESTful APIs is located  [here](https:/
 In the future more api tests will be added. K6 documentation has a lot of usage examples [docs/k6/latest/examples/](https://grafana.com/docs/k6/latest/examples/)
 
 Playwright end-2-end testing framework of the same WordPress website is available at [ovcharski/playwright-e2e](https://github.com/ovcharski/playwright-e2e/),
+
+# How to Install K6
+
+To install K6, follow the instructions on the [K6 installation page](https://k6.io/docs/getting-started/installation/).
+
+# How to Run the Tests
+
+To run the tests, navigate to the project directory and use the following commands:
+
+k6 run k6/load-test.js
+k6 run k6/stress-test.js
+k6 run k6/spike-test.js
+k6 run k6/soak-test.js
+
+k6 run k6-api/load-test-api.js
+k6 run k6-api/stress-test-api.js
+k6 run k6-api/spike-test-api.js
 
 # Performance Tesing
 
@@ -72,5 +91,3 @@ When using K6 to test a website, it's generally recommended to focus on individu
 - API calls can be tested under load
 
 That being said, there are some scenarios where testing the whole web pages might be more relevant: End-to-end testing and/or Complex workflows.
-
-
