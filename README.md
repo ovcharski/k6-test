@@ -22,14 +22,17 @@ To install K6, follow the instructions on the [K6 installation page](https://k6.
 
 To run the tests, navigate to the project directory and use the following commands:
 
+```sh
 k6 run k6/load-test.js
 k6 run k6/stress-test.js
 k6 run k6/spike-test.js
 k6 run k6/soak-test.js
-
+```
+```sh
 k6 run k6-api/load-test-api.js
 k6 run k6-api/stress-test-api.js
 k6 run k6-api/spike-test-api.js
+```
 
 # Performance Tesing
 
