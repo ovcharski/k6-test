@@ -1,32 +1,43 @@
 import { sleep } from 'k6';
 import http from 'k6/http';
 
-export let options = {
+export const options = {
   stages: [
-    { target: 10, duration: '10s' },
-    { target: 0, duration: '10s' },
+    { duration: '2m', target: 50 },   // Gradual ramp-up
+    { duration: '5m', target: 100 },  // Increase load
+    { duration: '10m', target: 200 }, // Peak load
+    { duration: '5m', target: 100 },  // Gradual decrease
+    { duration: '2m', target: 0 }     // Ramp down
   ],
+  thresholds: {
+    http_req_duration: ['p(95)<500'], // 95% of requests should complete under 500ms
+    http_req_failed: ['rate<0.01']    // Less than 1% of requests should fail
+  },
+  summaryTimeUnit: 'ms',
+  summaryTrendStats: ['avg', 'min', 'med', 'max', 'p(95)', 'p(99)']
 };
 
 export default function() {
-  let url = 'https://ovcharski.com/shop/wp-json/wp/v2/posts';
-  let headers = {
-    'accept': 'application/json',
+  const apiUrl = 'https://ovcharski.com/shop/wp-json/wp/v2/posts';
+
+  const params = {
+    headers: {
+      'Accept': 'application/json',
+      'User-Agent': 'K6 Load Test'
+    }
   };
 
-  let res = http.get(url, { headers: headers });
+  // Send GET request to WordPress REST API
+  const res = http.get(apiUrl, params);
 
-  // Check if the request was successful
+  // Check response status
   if (res.status !== 200) {
-    console.log(`Error: ${res.status} ${res.statusText}`);
+    console.error(`API request failed with status ${res.status}`);
   }
 
+  // Optional: Parse and log response body for debugging
+  // console.log(JSON.stringify(res.json()));
 
-  // Check if the response body contains a certain string
-  if (!res.body.includes('Welcome to the shop')) {
-    console.log('Error: Response body does not contain expected string');
-  }
-
-  // Pause the execution for a short duration to simulate user think time
-  sleep(1);
+  // Random sleep between 1-3 seconds to simulate real user behavior
+  sleep(1 + Math.random() * 2);
 }
